@@ -1,0 +1,48 @@
+apply plugin: 'android-library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.0.3'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:+'
+    compile 'com.octo.android.robospice:robospice:+'
+    compile 'com.octo.android.robospice:robospice-google-http-client:+'
+    compile("com.google.http-client:google-http-client-gson:+") {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+        exclude group: 'junit', module: 'junit'
+        exclude group: 'com.google.android', module: 'android'
+        exclude group: 'stax', module: 'stax-api'
+    }
+    compile 'com.google.http-client:google-http-client-android:+'
+}
+
+def indoortmsclient = file('build/libs/indoortmsclient.aar')
+artifacts {
+    archives indoortmsclient
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:////var/tmp/myrepo/android")
+            pom.groupId = 'com.bnj.indoortmsclient'
+            pom.artifactId = 'indoortmsclient'
+            pom.version = '0.1.0'
+        }
+    }
+}

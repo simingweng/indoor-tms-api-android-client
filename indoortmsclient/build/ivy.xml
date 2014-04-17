@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+    <info module="indoortmsclient" organisation="IndoorTMSClient" publication="20140417224807"
+        revision="unspecified" status="integration">
+        <description />
+    </info>
+    <configurations>
+        <conf name="_debugCompile" description="## Internal use, do not manually configure ##"
+            extends="compile,debugCompile,debugProvided,provided" visibility="public" />
+        <conf name="_debugPublish" description="## Internal use, do not manually configure ##"
+            extends="compile,debugCompile,debugPublish,publish" visibility="public" />
+        <conf name="_debugTestCompile" description="## Internal use, do not manually configure ##"
+            extends="_debugCompile,androidTestCompile,androidTestProvided" visibility="public" />
+        <conf name="_debugTestPublish" description="## Internal use, do not manually configure ##"
+            extends="_debugCompile,_debugPublish,androidTestCompile,androidTestPublish"
+            visibility="public" />
+        <conf name="_releaseCompile" description="## Internal use, do not manually configure ##"
+            extends="compile,provided,releaseCompile,releaseProvided" visibility="public" />
+        <conf name="_releasePublish" description="## Internal use, do not manually configure ##"
+            extends="compile,publish,releaseCompile,releasePublish" visibility="public" />
+        <conf name="androidTestCompile"
+            description="Classpath for compiling the androidTest sources." visibility="private" />
+        <conf name="androidTestProvided"
+            description="Classpath for only compiling the androidTest sources."
+            visibility="private" />
+        <conf name="androidTestPublish" description="Classpath only used for publishing."
+            visibility="private" />
+        <conf name="archives" description="Configuration for archive artifacts."
+            visibility="public" />
+        <conf name="compile" description="Classpath for compiling the main sources."
+            visibility="private" />
+        <conf name="debug" description="Published Configuration for Variant debug"
+            extends="compile,debugCompile,debugPublish,publish" visibility="public" />
+        <conf name="debugCompile" description="Classpath for compiling the debug sources."
+            visibility="private" />
+        <conf name="debugProvided" description="Classpath for only compiling the debug sources."
+            visibility="private" />
+        <conf name="debugPublish" description="Classpath only used for publishing."
+            visibility="private" />
+        <conf name="default" description="Configuration for default artifacts."
+            extends="_releasePublish" visibility="public" />
+        <conf name="provided" description="Classpath for only compiling the main sources."
+            visibility="private" />
+        <conf name="publish" description="Classpath only used for publishing."
+            visibility="private" />
+        <conf name="release" description="Published Configuration for Variant release"
+            extends="compile,publish,releaseCompile,releasePublish" visibility="public" />
+        <conf name="releaseCompile" description="Classpath for compiling the release sources."
+            visibility="private" />
+        <conf name="releaseProvided" description="Classpath for only compiling the release sources."
+            visibility="private" />
+        <conf name="releasePublish" description="Classpath only used for publishing."
+            visibility="private" />
+    </configurations>
+    <publications>
+        <artifact name="indoortmsclient" conf="archives" ext="aar" type="aar" />
+        <artifact name="indoortmsclient" conf="archives,default" ext="aar" type="aar" />
+    </publications>
+    <dependencies>
+        <dependency name="support-v4" conf="compile-&gt;default" org="com.android.support"
+            rev="+" />
+        <dependency name="robospice" conf="compile-&gt;default" org="com.octo.android.robospice"
+            rev="+" />
+        <dependency name="robospice-google-http-client" conf="compile-&gt;default"
+            org="com.octo.android.robospice" rev="+" />
+        <dependency name="google-http-client-gson" conf="compile-&gt;default"
+            org="com.google.http-client" rev="+">
+            <exclude name="*" conf="compile" ext="*" matcher="exact" module="xpp3" org="xpp3"
+                type="*" />
+            <exclude name="*" conf="compile" ext="*" matcher="exact" module="httpclient"
+                org="org.apache.httpcomponents" type="*" />
+            <exclude name="*" conf="compile" ext="*" matcher="exact" module="junit" org="junit"
+                type="*" />
+            <exclude name="*" conf="compile" ext="*" matcher="exact" module="android"
+                org="com.google.android" type="*" />
+            <exclude name="*" conf="compile" ext="*" matcher="exact" module="stax-api" org="stax"
+                type="*" />
+        </dependency>
+        <dependency name="google-http-client-android" conf="compile-&gt;default"
+            org="com.google.http-client" rev="+" />
+    </dependencies>
+</ivy-module>
