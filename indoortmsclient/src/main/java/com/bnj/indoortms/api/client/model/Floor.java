@@ -129,4 +129,8 @@ public class Floor {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
