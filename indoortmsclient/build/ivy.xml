@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info module="indoortmsclient" organisation="IndoorTMSClient" publication="20140418220212"
+    <info module="indoortmsclient" organisation="IndoorTMSClient" publication="20140419140136"
           revision="unspecified" status="integration">
         <description/>
     </info>
