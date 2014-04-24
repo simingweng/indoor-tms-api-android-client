@@ -5,10 +5,12 @@ package com.bnj.indoortms.api.client.model;
 
 import com.google.api.client.util.Key;
 
+import java.io.Serializable;
+
 /**
  * @author simingweng
  */
-public class GCP {
+public class GCP implements Serializable {
 
     @Key
     public double x;

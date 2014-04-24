@@ -5,10 +5,12 @@ package com.bnj.indoortms.api.client.model;
 
 import com.google.api.client.util.Key;
 
+import java.io.Serializable;
+
 /**
  * @author simingweng
  */
-public class User {
+public class User implements Serializable {
 
     @Key
     private String username;

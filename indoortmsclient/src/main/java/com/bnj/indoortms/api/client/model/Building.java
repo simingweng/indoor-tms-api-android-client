@@ -5,10 +5,12 @@ package com.bnj.indoortms.api.client.model;
 
 import com.google.api.client.util.Key;
 
+import java.io.Serializable;
+
 /**
  * @author simingweng
  */
-public class Building {
+public class Building implements Serializable {
 
     @Key
     private String _id;
@@ -138,7 +140,7 @@ public class Building {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+        if (((Object) this).getClass() != obj.getClass())
             return false;
         Building other = (Building) obj;
         if (_id == null) {

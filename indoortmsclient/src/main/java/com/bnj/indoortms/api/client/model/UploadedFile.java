@@ -2,10 +2,12 @@ package com.bnj.indoortms.api.client.model;
 
 import com.google.api.client.util.Key;
 
+import java.io.Serializable;
+
 /**
  * Created by wen55527 on 4/23/14.
  */
-public class UploadedFile {
+public class UploadedFile implements Serializable {
     @Key
     private int size;
     @Key
